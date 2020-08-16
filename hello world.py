@@ -138,3 +138,103 @@ else:
     x_increment = 3
 alien_0['x_position'] = alien_0['x_position'] + x_increment
 print("New x-position: " + str(alien_0['x_position'])) 
+favorite_languages = {
+    'jen': 'python',
+    'sarah': 'ruby',
+    'edward': 'c',
+    'phil': 'python',
+    }
+print("Sarah's favorite language is "+
+    favorite_languages['sarah'].title() +
+    ".")
+#6.2
+user_0 = {
+    'username': 'efermi',
+    'first': 'enrico',
+    'last': 'fermi'
+    }
+#键值对
+for key, value in user_0.items():
+    print("\nKey: " + key)
+    print("Value: " + value)
+freinds = ['phil', 'sarah']
+for name in favorite_languages.keys():
+    print(name.title())
+    if name in freinds:
+        print(" Hi " + name.title() +
+        ", I see your favorite language is " +
+        favorite_languages[name].title() + "!")
+if 'erin' not in favorite_languages.keys():
+    print("Erin, please take our poll!")
+for name in sorted(favorite_languages.keys()):
+    print(name.title() + ", thank you for taking the poll.")
+print("The following languages have been mentioned:")
+for language in set(favorite_languages.values()):
+    print(language.title())
+#6.3
+alien_0 = {'color': 'green', 'points': 5}
+alien_1 = {'color': 'yellow', 'points': 10}
+alien_2 = {'color': 'red', 'points': 15}
+#aliens = [alien_0, alien_1, alien_2]
+#for alien in aliens:
+    #print(alien)
+
+aliens = []
+for alien_number in range(30):
+    new_alien = {'color': 'green', 'points' : 5, 'speed': 'slow'}
+    aliens.append(new_alien)
+for alien in aliens[:5]:
+    print(alien)
+print("...")
+print("The total number of aliens: " +
+    str(len(aliens)))
+for alien in aliens[:3]:
+    if alien['color'] == 'green':
+        alien['color'] = 'yellow'
+        alien['points'] = '10'
+        alien['speed'] = 'melium'
+    elif alien['color'] == 'yellow':
+        alien['color'] = 'red'
+        alien['speed'] = 'fast'
+        alien['points'] = 15
+for alien in aliens[:5]:
+    print(alien)
+print("...")
+#6.4
+pizza = {
+    'crust': 'thick',
+    'toppings': ['musrooms', 'extra cheese'],
+    }
+print("You ordered a " + pizza['crust'] + "-crust pizza " +
+    "with the following toppings:")
+for topping in pizza['toppings']:
+    print("\t" + topping)
+
+favorite_languages = {
+    'jen': ['python', 'ruby'],
+    'sarah': ['c'],
+    'edward': ['ruby', 'go'],
+    'phil': ['python', 'haskell'],
+    }
+for name, languages in favorite_languages.items():
+    print("\n" + name.title() + "'s favorite language are:")
+    for language in languages:
+        print("\t" + language.title())
+users = {
+    'einstein': {
+        'first': 'albert',
+        'last': 'einstein',
+        'location': 'princeton',
+        },
+    'mcurie': {
+        'first': 'marie',
+        'last': 'curie',
+        'location': 'paris',
+        },
+    }
+for username, user_info in users.items():
+    print("\nUsername: " + username.title())
+    full_name = user_info['first'] + user_info['last']
+    location = user_info['location']
+    print("\tFullname is " + full_name.title())
+    print("\tLocation is " + location.title())
