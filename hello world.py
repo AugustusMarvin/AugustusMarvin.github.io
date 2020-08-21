@@ -298,6 +298,7 @@ while current_number < 10:
         continue
     print(current_number)
 #7.3
+'''
 unconfirmed_users = ['alice', 'brian', 'candace']
 confirmed_users = []
 while unconfirmed_users:
@@ -326,3 +327,59 @@ while polling_active:
 print("\n-- Poll Results --")
 for name, response in responses.items():
     print(name.title() + " would like to climb " + response + ".")
+'''
+#No.8
+#8.1
+def greet_user():
+    print("Bonjour!")
+greet_user()
+def greet_user_1(username):
+    print("\nBonjour! " + username.title() + ".")
+greet_user_1("marvin")
+#8.2
+def describe_pet(animal_type, pet_name):
+    print("\nI have a " + animal_type.title() + ".")
+    print("My " + animal_type.title() + "'s name is " + pet_name.title() + ".")
+describe_pet("dog", "dortmund")
+describe_pet("cat", "bayern")
+def describe_pet_1(animal_type, pet_name):
+    print("\nI have a " + animal_type.title() + ".")
+    print("My " + animal_type.title() + "'s name is " + pet_name.title() + ".")
+describe_pet_1(animal_type='hamster', pet_name='paris')
+describe_pet_1(pet_name='Madrid', animal_type='sheep')
+def describe_pet_2(pet_name, animal_type='dog'):
+    print("\nI have a " + animal_type.title() + ".")
+    print("My " + animal_type.title() + "'s name is " + pet_name.title() + ".")
+describe_pet_2(pet_name='Man')
+describe_pet_2('Che')
+describe_pet_2('Liv', 'tiger')
+describe_pet_2(animal_type='tiger', pet_name='Liv')
+#8.3
+def get_formatted_name(first_name, last_name):
+    full_name = first_name.title() + ' ' + last_name.title()
+    return full_name
+musician = get_formatted_name('jimi', 'hendrix')
+print(musician)
+def get_formatted_name_1(first_name, last_name, middle_name=''):
+    if middle_name:
+        full_name = first_name.title() + ' ' + middle_name.title() + ' ' + last_name.title()
+    else:
+        full_name = first_name.title() + ' ' + last_name.title()
+    return full_name
+musician = get_formatted_name_1('jimi', 'hendrix')
+print(musician)
+musician = get_formatted_name_1('john', 'hooker', 'lee')
+print(musician)
+def build_person(first_name, last_name):
+    person = {'first':first_name.title(), 'last':last_name.title()}
+    return person
+musician = build_person('jimi', 'hendrix')
+print("\nMy favorite musician is " + musician['first'] + " " + musician['last'])
+def build_person_1(first_name, last_name, age=''):
+    person = {'first':first_name.title(), 'last':last_name.title()}
+    if age:
+        person['age'] = age
+    return person
+musician = build_person_1('jimi', 'hendrix', 27)
+print("\nMy favorite musician is " + musician['first'] + " " + musician['last'])
+print("He is " + str(musician['age']) + " year's old")
