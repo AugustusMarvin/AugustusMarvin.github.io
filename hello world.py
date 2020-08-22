@@ -383,3 +383,76 @@ def build_person_1(first_name, last_name, age=''):
 musician = build_person_1('jimi', 'hendrix', 27)
 print("\nMy favorite musician is " + musician['first'] + " " + musician['last'])
 print("He is " + str(musician['age']) + " year's old")
+#8.4
+def greet_users(names):
+    for name in names:
+        msg = "Hello, " + name.title() + "!"
+        print(msg)
+usernames = ['marvin', 'lea', 'leo', 'jan']
+greet_users(usernames)
+unprinted_designs = ['iphone case', 'robot pendant', 'dodecahedron']
+completed_models = []
+'''
+while unprinted_designs:
+    current_design = unprinted_designs.pop()
+    print("Printing model: " + current_design.title())
+    completed_models.append(current_design)
+print("\nThe following models have been printed:")
+for completed_model in completed_models:
+    print(completed_model.title())
+'''
+def print_models(unprinted_designs, completed_models):
+    while unprinted_designs:
+        current_design = unprinted_designs.pop()
+        print("Printing model: " + current_design.title())
+        completed_models.append(current_design)
+def show_completed_models(completed_models):
+    for completed_model in completed_models:
+        print(completed_model.title())
+print_models(unprinted_designs, completed_models)
+show_completed_models(completed_models)
+
+unprinted_designs = ['iphone case', 'robot pendant', 'dodecahedron']
+completed_models = []
+def print_models(unprinted_designs, completed_models):
+    while unprinted_designs:
+        current_design = unprinted_designs.pop()
+        print("Printing model: " + current_design.title())
+        completed_models.append(current_design)
+def show_completed_models(completed_models):
+    for completed_model in completed_models:
+        print(completed_model.title())
+print_models(unprinted_designs[:], completed_models)
+show_completed_models(completed_models)
+#8.5
+def make_pizza(*toppings):
+    print(toppings)
+make_pizza('pepperoni')
+make_pizza('mushrooms', 'cheese', 'green peppers')
+
+def make_pizza_1(*toppings):
+    print("\nMaking a pizza with the following toppings:")
+    for topping in toppings:
+        print(topping.title())
+make_pizza_1('pepperoni')
+make_pizza_1('mushroom', 'cheese', 'green peppers')
+
+def make_pizza_2(size, *toppings):
+    print("\nMaking a " + str(size) +
+    "-inch pizza with the following toppings:")
+    for topping in toppings:
+        print("-" + topping.title())
+make_pizza_2(16, 'pepperoni')
+make_pizza_2(20, 'mushroom', 'cheese', 'green peppers')
+
+def build_profile(first, last, **user_info):
+    profile = {}
+    profile['firstname'] = first.title()
+    profile['lastname'] = last.title()
+    for key, value in user_info.items():
+        profile[key] = value
+    return profile
+user_profile = build_profile('marvin', 'wang',
+                             location='princeton',
+                             field='physics')
+print(user_profile)
