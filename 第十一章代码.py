@@ -9,3 +9,5 @@ class NamesTestCase(unittest.TestCase):
         formatted_name = get_formatted_name('jains', 'joplin')
         self.assertEqual(formatted_name, 'Jains Joplin')
 unittest.main()
+#必须要继承unittest.TestCase类，python才知道如何去运行测试
+#通过测试时会显示OK
