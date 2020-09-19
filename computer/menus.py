@@ -53,9 +53,20 @@ class menuss():
         button_sqrt = tkinter.Button(self.root, text='√', command = self.sqr)
         button_sqrt.place(x = 60, y =150, width = 50, height = 50)
         #数字键7
-        button_sqrt = tkinter.Button(self.root, text='7', command = lambda: self.pressnum('7'))
-        button_sqrt.place(x = 115, y =150, width = 50, height = 50)
-    
+        button_seven = tkinter.Button(self.root, text='7', command = lambda: self.pressnum('7'))
+        button_seven.place(x = 115, y =150, width = 50, height = 50)
+        #数字键8
+        button_eight = tkinter.Button(self.root, text='8', command = lambda: self.pressnum('8'))
+        button_eight.place(x = 170, y =150, width = 50, height = 50)
+        #数字键9
+        button_nine = tkinter.Button(self.root, text='9', command = lambda: self.pressnum('9'))
+        button_nine.place(x = 225, y =150, width = 50, height = 50)
+        #功能键 +
+        button_add = tkinter.Button(self.root, text='+', command = lambda: self.addition('+'))
+        button_add.place(x = 5, y =205, width = 50, height = 50)
+        #功能键 =
+        button_add = tkinter.Button(self.root, text='=', command = self.equal)
+        button_add.place(x = 60, y =205, width = 50, height = 50)
     #以下为功能实现函数
     def MC(self):
         self.m_history = []
@@ -90,10 +101,11 @@ class menuss():
         if strnum > 0:
             endnum = math.sqrt(strnum)
             self.result.set(str(endnum)[:10])
-            self.press_sign = True
         else:
             self.result.set('erro!')
             return
+        if self.lists != 0:
+            self.press_sign = True
         '''
         if strnum[0] == '-':
             self.result.set("erro")
@@ -120,6 +132,27 @@ class menuss():
         else:
             new_num = old_num + num
             self.result.set(new_num)
+    def addition(self, sign):
+        num = self.result.get()
+        #保存按下的数字
+        self.lists.append(num)
+        #保存按下的符号
+        self.lists.append(sign)
+        self.press_sign = True
+    def equal(self):
+        #将当前界面上的数字存入列表
+        newnum = self.result.get()
+        self.lists.append(newnum)
+        compute = ''.join(self.lists)
+        #Python join() 方法用于将序列中的元素以指定的字符连接生成一个新的字符串。
+        #eval() 函数用来执行一个字符串表达式，并返回表达式的值
+        eva = eval(compute)
+        self.result.set(str(eva)[:10])  #保留10位小数
+        if self.lists != 0:
+            self.press_sign = True
+        self.lists.clear()
+
+
 
 
 
