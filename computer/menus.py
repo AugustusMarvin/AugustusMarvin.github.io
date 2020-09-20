@@ -23,6 +23,10 @@ class menuss():
     def menus(self):
         #创建一个菜单
         window = tkinter.Menu(self.root)
+        #添加子菜单
+        filemenus = tkinter.Menu(window, tearoff=0)
+        filemenus.add_command(label="标准型(T)          ALT+1", command=self.myfunc)
+        window.add_cascade(label="查看(V)", menu=filemenus)
         self.root.config(menu=window)
     def layout(self):
         #计算器主界面的摆放
@@ -67,6 +71,45 @@ class menuss():
         #功能键 =
         button_add = tkinter.Button(self.root, text='=', command = self.equal)
         button_add.place(x = 60, y =205, width = 50, height = 50)
+        #数字键4
+        button_nine = tkinter.Button(self.root, text='4', command = lambda: self.pressnum('4'))
+        button_nine.place(x = 115, y =205, width = 50, height = 50)
+        #数字键5
+        button_nine = tkinter.Button(self.root, text='5', command = lambda: self.pressnum('5'))
+        button_nine.place(x = 170, y =205, width = 50, height = 50)
+        #数字键6
+        button_nine = tkinter.Button(self.root, text='6', command = lambda: self.pressnum('6'))
+        button_nine.place(x = 225, y =205, width = 50, height = 50)
+        #功能键 x
+        button_add = tkinter.Button(self.root, text='x', command = lambda: self.addition('*'))
+        button_add.place(x = 5, y =260, width = 50, height = 50)
+        #功能键 ÷
+        button_add = tkinter.Button(self.root, text='÷', command = lambda: self.addition('/'))
+        button_add.place(x = 60, y =260, width = 50, height = 50)
+        #数字键1
+        button_nine = tkinter.Button(self.root, text='1', command = lambda: self.pressnum('1'))
+        button_nine.place(x = 115, y =260, width = 50, height = 50)
+        #数字键2
+        button_nine = tkinter.Button(self.root, text='2', command = lambda: self.pressnum('2'))
+        button_nine.place(x = 170, y =260, width = 50, height = 50)
+        #数字键3
+        button_nine = tkinter.Button(self.root, text='3', command = lambda: self.pressnum('3'))
+        button_nine.place(x = 225, y =260, width = 50, height = 50)
+        #数字键0
+        button_nine = tkinter.Button(self.root, text='0', command = lambda: self.pressnum('0'))
+        button_nine.place(x = 5, y =315, width = 50, height = 50)
+        #小数点键.
+        button_nine = tkinter.Button(self.root, text='.', command = lambda: self.pressnum('.'))
+        button_nine.place(x = 60, y =315, width = 50, height = 50)
+        #1/x按键
+        button_nine = tkinter.Button(self.root, text='1/x', command = self.ds)
+        button_nine.place(x = 115, y =315, width = 50, height = 50)
+        #除号取整键//
+        button_nine = tkinter.Button(self.root, text='//', command = lambda: self.pressnum('//'))
+        button_nine.place(x = 170, y =315, width = 50, height = 50)
+        #取余号%
+        button_nine = tkinter.Button(self.root, text='%', command = lambda: self.pressnum('%'))
+        button_nine.place(x = 225, y =315, width = 50, height = 50)
     #以下为功能实现函数
     def MC(self):
         self.m_history = []
@@ -151,6 +194,14 @@ class menuss():
         if self.lists != 0:
             self.press_sign = True
         self.lists.clear()
+    def ds(self):
+        dsnum = 1/float(self.result.get())
+        self.result.set(str(dsnum)[:10])
+        if self.lists != 0:
+            self.press_sign = True
+        self.lists.clear()
+    def myfunc(self):
+        print("1")
 
 
 
