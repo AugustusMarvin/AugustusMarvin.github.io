@@ -15,9 +15,10 @@ class Account(object):
         finally:
             #在finally中执行释放锁的操作以保证正常异常锁都可以释放
             self._lock.release()
-    def set_balance(self):
+    @property
+    def balance(self):
         return self._balabce
-    balance = property(set_balance)
+    #balance = property(set_balance)
 
 class AddMoneyThread(Thread):
     def __init__(self, account, money):
