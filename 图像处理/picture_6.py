@@ -4,3 +4,4 @@ for x in range(80, 310):
     for y in range(20, 360):
         image.putpixel((x,y), (128, 128, 128))
 image.show()
+#去除图像中的某个部分

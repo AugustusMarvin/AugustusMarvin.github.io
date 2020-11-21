@@ -6,3 +6,4 @@ guido = image2.crop(rect)
 width, height = guido.size
 image1.paste(guido.resize((int(width / 1.5), int(height / 1.5))),(172, 40))
 image1.show()
+#将两个图像进行拼接
